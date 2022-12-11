@@ -58,8 +58,7 @@ function find_process() {
       jar_file_name=$(basename ./build/libs/*.jar)
       ps_pid=$(pgrep -f $jar_file_name)
       if [ -z "$ps_pid" ]; then
-	      echo -e "${txtgrn} >> There is no existing process. Reruning... ${txtrst}"
-	      app_start
+	      echo -e "${txtgrn} >> There is no existing process. ${txtrst}"
       else
 	      echo -e "${txtgrn} >> Find existing process: $ps_pid"
       fi
@@ -89,7 +88,6 @@ function app_start() {
 }
 
 function deploy() {
-	find_process
 	check_df
 	find_process
 	kill_process
